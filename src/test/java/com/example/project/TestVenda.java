@@ -14,6 +14,14 @@ public class TestVenda {
         }
     }
 
+    private void validaImpressao(String mensagemEsperada, Venda venda) {
+        try {
+            venda.imprimeCupom();
+        } catch (RuntimeException e) {
+            assertEquals(mensagemEsperada, e.getMessage());
+        }
+    }
+
     private String NOME_LOJA = "Loja 1";
     private String LOGRADOURO = "Log 1";
     private int NUMERO = 10;
@@ -75,7 +83,7 @@ public class TestVenda {
     @Test
     public void testeSemItens() {
         Venda venda = paramLoja.vender(DATAHORA, CCF_VENDA, COO_VENDA);
-        verificarCampoObrigatorio(MENSAGEM_VENDA_SEM_ITENS, venda);
+        validaImpressao(MENSAGEM_VENDA_SEM_ITENS, venda);
     }
 
     @Test
