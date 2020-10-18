@@ -44,6 +44,15 @@ public class TestLoja {
 			+ "Mun 1 - E1" + BREAK + "CEP:11111-111 Tel (11) 1111-1111" + BREAK + "Obs 1" + BREAK
 			+ "CNPJ: 11.111.111/1111-11" + BREAK + "IE: 123456789" + BREAK;
 
+	private String TEXTO_ESPERADO_EXERCICIO2_CUSTOMIZADO = "Boa vista Flores" + BREAK + 
+			"Rua Jardim Peres, 122 EUC F30/31/44" + BREAK + 
+			"Centro - Monteiro - PB" + BREAK + 
+			"CEP:58500000 Tel (99) 9999-9999" + BREAK + 
+			"Loja 122 (PDB)" + BREAK + 
+			"CNPJ: 22.300.551/0110-56" + BREAK + 
+			"IE: 432.118.667.777" + BREAK;
+
+
 	private String NOME_LOJA = "Loja 1";
 	private String LOGRADOURO = "Log 1";
 	private int NUMERO = 10;
@@ -238,25 +247,25 @@ public class TestLoja {
 	@Test
 	public void exercicio02_Customizado() {
 		// Defina seus próprios valores para as variáveis a seguir
-		String nomeLoja = "";
-		String logradouro = "";
-		int numero = 0;
-		String complemento = "";
-		String bairro = "";
-		String municipio = "";
-		String estado = "";
-		String cep = "";
-		String telefone = "";
-		String observacao = "";
-		String cnpj = "";
-		String inscricaoEstadual = "";
+		String nomeLoja = "Boa vista Flores";
+		String logradouro = "Rua Jardim Peres";
+		int numero = 122;
+		String complemento = "EUC F30/31/44";
+		String bairro = "Centro";
+		String municipio = "Monteiro";
+		String estado = "PB";
+		String cep = "58500000";
+		String telefone = "(99) 9999-9999";
+		String observacao = "Loja 122 (PDB)";
+		String cnpj = "22.300.551/0110-56";
+		String inscricaoEstadual = "432.118.667.777";
 
 		Loja lojaCustomizada = new Loja(nomeLoja,
 				new Endereco(logradouro, numero, complemento, bairro, municipio, estado, cep), telefone, observacao,
 				cnpj, inscricaoEstadual);
 
 		// E atualize o texto esperado abaixo
-		rodarTestarRetorno("" + BREAK, lojaCustomizada);
+		rodarTestarRetorno(TEXTO_ESPERADO_EXERCICIO2_CUSTOMIZADO, lojaCustomizada);
 	}
 
 	private void rodarTestarRetorno(String expected, Loja loja) {
